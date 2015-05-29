@@ -62,7 +62,7 @@ class ChunkGetter(threading.Thread):
 
 
 class Session:
-    def __init__(self, url, local_path, num_threads=50):
+    def __init__(self, url, local_path, num_threads=4):
         self.url = url
         self.local_path = local_path
         self.num_threads = num_threads
