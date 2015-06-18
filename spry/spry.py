@@ -37,17 +37,15 @@ class ChunkGetter(threading.Thread):
         self._file.seek(self._start)
 
     def run(self):
-        # print('start - {}\n'
-        #       'end   - {}\n'
-        #       'len   - {}\n\n'.format(self._start, self._end, self._length))
         headers = {'range': 'bytes={}-{}'.format(self._start, self._end)}
         request = requests.get(self._url, headers=headers, stream=True)
         file = self._file
 
+        request_size = 131072
         num_consumed = 0
 
         while True:
-            chunk = request.raw.read(204800)
+            chunk = request.raw.read(request_size)
             if not chunk:
                 break
             chunk_length = len(chunk)
@@ -58,7 +56,6 @@ class ChunkGetter(threading.Thread):
 
             file.write(chunk)
             num_consumed += chunk_length
-        # print('done\n\n')
 
 
 class Session:
