@@ -12,7 +12,7 @@ def get_chunk_data(length, num_parts):
         if i == num_parts - 1:
             end += length - end
         chunk_data.append({'start': start, 'end': end - 1,
-                             'length': end - start})
+                           'length': end - start})
         start = end
 
     return chunk_data

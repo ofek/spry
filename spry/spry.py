@@ -70,11 +70,15 @@ class Session:
 
     def get_chunk_data(self):
         request = requests.get(self.url, stream=True)
-        if request == 404:
+        if request.status_code == 404:
             raise Exception
 
-        self.request_length = int(request.headers['content-length'])
-        self.chunk_data = get_chunk_data(self.request_length, self.num_threads)
+        request_length = int(request.headers.get('content-length', '0'))
+        if request_length == 0:
+            self.num_threads = 1
+
+        self.chunk_data = get_chunk_data(request_length, self.num_threads)
+        self.request_length = request_length
 
     def create_local_file(self):
         create_null_file(self.local_path, self.request_length)
