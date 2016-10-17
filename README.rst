@@ -2,7 +2,7 @@ Spry - The protocols you know, made better.
 ===========================================
 
 Spry provides a cross-platform API, and corresponding CLI, for getting & sending
-files over HTTP(S) & SFTP. Building on top of 'Requests'_ and 'Paramiko'_, it adds many
+files over HTTP(S) & SFTP. Building on top of `Requests`_ and `Paramiko`_, it adds many
 convenient features such as accelerated and parallel transfers, speed limiting,
 and session management allowing pause/resume functionally and the ability to
 continue incomplete or previously stopped transfers.
