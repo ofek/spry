@@ -1,10 +1,9 @@
-from .spry import Session
+from spry.http import HTTPFileSync, HTTPSession
 
 
-def get(url, path, threads=4, start=False):
-    session = Session(url, path, threads)
-
-    if start:
-        session.start()
+def httpget(url, path, persist=True, parts=4, limit=None, timeout=None, restart=False, **kwargs):
+    session = HTTPFileSync('get', url, path, persist=persist, parts=parts, speed_limit=limit,
+                           timeout=timeout, restart=restart, **kwargs)
+    session.run()
 
     return session

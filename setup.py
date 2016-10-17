@@ -5,8 +5,8 @@ with open('README.rst', 'r') as infile:
 
 setup(
     name='spry',
-    version='0.3.0',
-    description='Multi-part download accelerator',
+    version='0.5.0',
+    description='Modern file transfer utility supporting HTTPS & SFTP.',
     long_description=read_me,
     author='Ofek Lev',
     author_email='ofekmeister@gmail.com',
@@ -17,32 +17,33 @@ setup(
     license='MIT',
     platforms=None,
 
-    keywords=[
-        'file downloader',
-        'download accelerator',
-        'multi-part downloader',
+    keywords=(
+        'file transfer',
+        'accelerator',
         'download manager',
-    ],
+    ),
 
-    classifiers=[
-        'Development Status :: 1 - Planning',
+    classifiers=(
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Intended Audience :: End Users/Desktop',
-        'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
-    ],
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy'
+    ),
 
-    setup_requires=['requests==2.7.0'],
-    install_requires=['requests==2.7.0'],
+    install_requires=['appdirs', 'click', 'requests', 'SQLAlchemy'],
+
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'spry = spry.cli:main',
+            'spry = spry.cli:spry',
         ],
     },
 )

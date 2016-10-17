@@ -1,1 +1,1 @@
-from .api import get  # pragma: no cover
+from spry.api import httpget

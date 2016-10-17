@@ -1,0 +1,12 @@
+[run]
+source = spry
+branch = True
+omit =
+    spry/__init__.py
+    spry/api.py
+    spry/cli.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:

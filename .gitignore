@@ -1,5 +1,6 @@
-*.pyc
 *.log
+*.pyc
+/.cache
 /.idea
 /.coverage
 /spry.egg-info
