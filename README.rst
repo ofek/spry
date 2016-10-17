@@ -19,7 +19,7 @@ Why?
   product, latency, server imposed connection limits, etc., you are unlikely to be utilizing
   the majority of your bandwidth. There are some hacky remedies such as manipulating the TCP
   window scale option, but those are complicated and generally do more harm than good. It
-  turns out the optimal solution is simply leveraging server's 'byte serving'_ capabilities
+  turns out the optimal solution is simply leveraging server's `byte serving`_ capabilities
   and request parts concurrently. The same holds true for SFTP via seeking.
 
 Quickstart
@@ -31,6 +31,7 @@ API
 ^^^
 
 .. code-block:: python
+
     >>> from spry import HTTPSession
     >>> http = HTTPSession()
     >>> ubuntu_iso = http.get(
